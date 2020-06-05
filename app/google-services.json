@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "7214030976",
+    "firebase_url": "https://iwimapp.firebaseio.com",
+    "project_id": "iwimapp",
+    "storage_bucket": "iwimapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:7214030976:android:7f2dc3af3c1f3debd00665",
+        "android_client_info": {
+          "package_name": "com.ensias.iwimapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "7214030976-4b3c461brrrqns21f87ptgfpkr14g94j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ensias.iwimapp",
+            "certificate_hash": "44618bd26db6a669302e66f945acb09128f76cc6"
+          }
+        },
+        {
+          "client_id": "7214030976-1kggrn63ag8nmc4c9jk9p5um1n3arv7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgsZ4yF1R9UjUJZArR9TFX7_C-Dkr34ro"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "7214030976-1kggrn63ag8nmc4c9jk9p5um1n3arv7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
