@@ -213,6 +213,10 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
                 Intent intent5 =new Intent(getApplicationContext(),addTimetable.class);
                 startActivity(intent5);
                 break;
+            case R.id.nav_chat:
+                Intent intent6 =new Intent(getApplicationContext(),Messaging.class);
+                startActivity(intent6);
+                break;
             case R.id.nav_logout:
                 mAuth.getInstance().signOut();
                 finish();

@@ -15,6 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/myTheme">
         <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Messaging"></activity>
         <activity android:name=".addTimetable"
             android:label="Add Time Table"/>
         <activity android:name=".Timetable"
