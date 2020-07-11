@@ -42,7 +42,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="134dp"
-            android:text="Upload Time Table" />
+            android:text="Upload Time Table"
+            android:textColor="@color/mycolor2"
+            android:background="@color/mycolor1"/>
 
         <LinearLayout
             android:layout_width="match_parent"

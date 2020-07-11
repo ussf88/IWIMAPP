@@ -33,6 +33,7 @@ public class Sign extends Activity {
     private EditText FirstName;
     private EditText LastName;
     private Button SignButton;
+    private Button loginButton;
     private RadioGroup radiogroup;
     private RadioButton radioButton;
     private FirebaseAuth mAuth;
@@ -46,11 +47,18 @@ public class Sign extends Activity {
         emailText =(EditText) findViewById(R.id.Semail);
         passwordText =(EditText) findViewById(R.id.Spassword);
         SignButton =(Button) findViewById(R.id.sign);
+        loginButton =(Button) findViewById(R.id.login);
         FirstName =(EditText) findViewById(R.id.Sfirstname);
         LastName =(EditText) findViewById(R.id.Slastname);
         radiogroup = findViewById(R.id.Stype);
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Sign.this,Login.class));
+            }
+        });
         SignButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

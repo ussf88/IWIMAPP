@@ -26,7 +26,6 @@ public class Login extends Activity {
 
     public void onStart() {
         super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUIHome(currentUser);
     }

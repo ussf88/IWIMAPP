@@ -108,8 +108,8 @@ public class addCourse extends Activity implements View.OnClickListener , Naviga
 
 
 
-        UserID=mAuth.getCurrentUser().getUid();
-        DocumentReference UserDoc= db.collection("Users").document(UserID);
+        UserID = mAuth.getCurrentUser().getUid();
+        DocumentReference UserDoc = db.collection("Users").document(UserID);
         UserDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -117,13 +117,20 @@ public class addCourse extends Activity implements View.OnClickListener , Naviga
                     Map<String, Object> user = new HashMap<>();
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        user=document.getData();
-                        String type=(String)user.get("Type");
-                        if (type.equals("Student")){
+                        user = document.getData();
+                        String type = (String) user.get("Type");
+                        if (type.equals("Student")) {
                             nav.getMenu().findItem(R.id.nav_add_cours).setVisible(false);
                             nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
-                        }
-                        else if(type.equals("Teacher")){
+                            nav.getMenu().findItem(R.id.nav_chatd).setVisible(false);
+                        } else if (type.equals("Teacher")) {
+                            nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chatd).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chat).setVisible(false);
+                        }else if (type.equals("head of sector")) {
+                            nav.getMenu().findItem(R.id.nav_chat).setVisible(false);
+                        }else if (type.equals("Delegate")) {
+                            nav.getMenu().findItem(R.id.nav_add_cours).setVisible(false);
                             nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
                         }
                     } else {
@@ -134,8 +141,6 @@ public class addCourse extends Activity implements View.OnClickListener , Naviga
                 }
             }
         });
-
-
 
 
 
@@ -156,9 +161,10 @@ public class addCourse extends Activity implements View.OnClickListener , Naviga
                 startActivity(intent);
                 break;
             case R.id.nav_home:
-                Intent intent2= new Intent(getApplicationContext(),Home.class);
-                startActivity(intent2);
+                Intent intent5 =new Intent(getApplicationContext(),Home.class);
+                startActivity(intent5);
                 break;
+
             case R.id.nav_add_cours:
                 break;
             case R.id.nav_profile:
@@ -170,18 +176,27 @@ public class addCourse extends Activity implements View.OnClickListener , Naviga
                 startActivity(intent4);
                 break;
             case R.id.nav_add_timetable:
-                Intent intent5 =new Intent(getApplicationContext(),addTimetable.class);
-                startActivity(intent5);
+                Intent intent2= new Intent(getApplicationContext(),addTimetable.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_chat:
+                Intent intent6 =new Intent(getApplicationContext(),Messaging.class);
+                startActivity(intent6);
+                break;
+            case R.id.nav_chatd:
+                Intent intent7 =new Intent(getApplicationContext(),Messaging_delegate.class);
+                startActivity(intent7);
                 break;
             case R.id.nav_logout:
                 mAuth.getInstance().signOut();
                 finish();
-                startActivity( new Intent(getApplicationContext(),Login.class));
+                startActivity( new Intent(getApplicationContext(),Sign.class));
 
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
     //this function will get the pdf from the storage

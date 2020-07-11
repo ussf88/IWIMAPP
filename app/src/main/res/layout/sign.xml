@@ -2,8 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@color/mycolor1">
-
+    >
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="294dp"
+        android:layout_height="178dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginRight="69dp"
+        android:layout_marginBottom="495dp"
+        android:src="@drawable/logo" />
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -114,15 +126,9 @@
         android:layout_marginEnd="169dp"
         android:layout_marginRight="169dp"
         android:layout_marginBottom="14dp"
-        android:background="@color/mycolor2"
-        android:text="Signup" />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="match_parent"
-        android:layout_height="236dp"
-        android:background="@color/mycolor2"
-        app:srcCompat="@drawable/logo"/>
+        android:text="Signup"
+        android:textColor="@color/mycolor2"
+        android:background="@color/mycolor1"/>
 
     <RadioGroup
         android:id="@+id/Stype"
@@ -160,5 +166,17 @@
             android:layout_height="match_parent"
             android:text="head of sector" />
     </RadioGroup>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="9dp"
+        android:text="Login"
+        android:textColor="@color/mycolor2"
+        android:background="@color/mycolor1" />
 
 </RelativeLayout>

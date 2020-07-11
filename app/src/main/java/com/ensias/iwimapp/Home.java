@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
@@ -49,6 +50,7 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
     NavigationView nav;
     Toolbar navIcon;
     String UserID;
+    ProgressBar progressBar;
     FirebaseFirestore db ;
     androidx.appcompat.widget.Toolbar t;
     ListView listView;
@@ -73,6 +75,7 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
         Courses = new ArrayList<>();
         Timetables = new ArrayList<>();
         listView = (ListView) findViewById(R.id.listView);
+        progressBar =findViewById(R.id.progressBarHome);
         nav.bringToFront();
         setActionBar(navIcon);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, R.string.open_nav, R.string.close_nav);
@@ -96,7 +99,15 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
                         if (type.equals("Student")) {
                             nav.getMenu().findItem(R.id.nav_add_cours).setVisible(false);
                             nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chatd).setVisible(false);
                         } else if (type.equals("Teacher")) {
+                            nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chatd).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chat).setVisible(false);
+                        }else if (type.equals("head of sector")) {
+                            nav.getMenu().findItem(R.id.nav_chat).setVisible(false);
+                        }else if (type.equals("Delegate")) {
+                            nav.getMenu().findItem(R.id.nav_add_cours).setVisible(false);
                             nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
                         }
                     } else {
@@ -146,8 +157,6 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
                                                     Timetables.add(timetable);
 
                                                 }
-                                                Log.e("cour1", "1 " + Courses.toString());
-                                                Log.e("cour1", "1 " + Timetables.toString());
                                                 String date;
                                                 String p;
                                                 String s;
@@ -170,6 +179,7 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
 
                                                 CourseAdapter adapter = new CourseAdapter(Home.this,R.layout.item, rowItems);
                                                 listView.setAdapter(adapter);
+                                                progressBar.setVisibility(View.INVISIBLE);
                                             } else {
                                                 Log.d(TAG, "Error getting documents: ", task.getException());
                                             }
@@ -217,10 +227,14 @@ public class Home extends Activity implements NavigationView.OnNavigationItemSel
                 Intent intent6 =new Intent(getApplicationContext(),Messaging.class);
                 startActivity(intent6);
                 break;
+            case R.id.nav_chatd:
+                Intent intent7 =new Intent(getApplicationContext(),Messaging_delegate.class);
+                startActivity(intent7);
+                break;
             case R.id.nav_logout:
                 mAuth.getInstance().signOut();
                 finish();
-                startActivity( new Intent(getApplicationContext(),Login.class));
+                startActivity( new Intent(getApplicationContext(),Sign.class));
 
         }
         drawer.closeDrawer(GravityCompat.START);

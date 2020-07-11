@@ -32,7 +32,10 @@
         android:icon="@drawable/book_plus"
         android:title="Add Course"/>
     <item android:id="@+id/nav_chat"
-        android:icon="@drawable/book_plus"
-        android:title="chat"/>
+        android:icon="@drawable/chat"
+        android:title="Students Chat"/>
+    <item android:id="@+id/nav_chatd"
+        android:icon="@drawable/chat"
+        android:title="Delegate chat"/>
 </group>
 </menu>

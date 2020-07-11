@@ -16,10 +16,12 @@
         app:menu="@menu/drawer_menu"
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_hader" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Profile">
+
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,16 +41,16 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="294dp"
-            android:layout_height="178dp"
+            android:layout_width="238dp"
+            android:layout_height="118dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginTop="119dp"
-            android:layout_marginEnd="75dp"
-            android:layout_marginRight="75dp"
-            android:layout_marginBottom="433dp"
+            android:layout_marginTop="87dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginRight="90dp"
+            android:layout_marginBottom="526dp"
             android:src="@drawable/user" />
 
         <TextView
@@ -63,10 +65,10 @@
             android:layout_marginBottom="375dp"
             android:text="Name" />
 
-        <TextView
+        <EditText
             android:id="@+id/Pname"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -78,7 +80,7 @@
         <TextView
             android:id="@+id/textView11"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -87,10 +89,10 @@
             android:layout_marginBottom="286dp"
             android:text="LastName" />
 
-        <TextView
+        <EditText
             android:id="@+id/Plastname"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -102,7 +104,7 @@
         <TextView
             android:id="@+id/textView12"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -111,10 +113,10 @@
             android:layout_marginBottom="196dp"
             android:text="Email" />
 
-        <TextView
+        <EditText
             android:id="@+id/Pemail"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -126,7 +128,7 @@
         <TextView
             android:id="@+id/textView13"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -135,10 +137,10 @@
             android:layout_marginBottom="103dp"
             android:text="Account Type" />
 
-        <TextView
+        <EditText
             android:id="@+id/Ptype"
             android:layout_width="139dp"
-            android:layout_height="35dp"
+            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
@@ -147,6 +149,17 @@
             android:layout_marginBottom="107dp"
             android:text="Account Type" />
 
+        <Button
+            android:id="@+id/btnChange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="171dp"
+            android:layout_marginBottom="450dp"
+            android:text="SAVE"
+            android:textColor="@color/mycolor2"
+            android:background="@color/mycolor1"/>
 
 
     </RelativeLayout>

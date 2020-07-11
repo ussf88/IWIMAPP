@@ -83,6 +83,7 @@ public class addTimetable extends Activity implements View.OnClickListener , Nav
         nav= findViewById(R.id.nav);
         navIcon= findViewById(R.id.toolbar);
         nav.bringToFront();
+        String UserID;
         setActionBar(navIcon);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawer,R.string.open_nav,R.string.close_nav);
         drawer.addDrawerListener(toggle);
@@ -102,6 +103,39 @@ public class addTimetable extends Activity implements View.OnClickListener , Nav
 
         //attaching listeners to views
         findViewById(R.id.buttonUploadFile).setOnClickListener(this);
+        UserID = mAuth.getCurrentUser().getUid();
+        DocumentReference UserDoc = db.collection("Users").document(UserID);
+        UserDoc.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    Map<String, Object> user = new HashMap<>();
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        user = document.getData();
+                        String type = (String) user.get("Type");
+                        if (type.equals("Student")) {
+                            nav.getMenu().findItem(R.id.nav_add_cours).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chatd).setVisible(false);
+                        } else if (type.equals("Teacher")) {
+                            nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chatd).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_chat).setVisible(false);
+                        }else if (type.equals("head of sector")) {
+                            nav.getMenu().findItem(R.id.nav_chat).setVisible(false);
+                        }else if (type.equals("Delegate")) {
+                            nav.getMenu().findItem(R.id.nav_add_cours).setVisible(false);
+                            nav.getMenu().findItem(R.id.nav_add_timetable).setVisible(false);
+                        }
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
     }
     @Override
     protected  void onResume(){
@@ -117,32 +151,42 @@ public class addTimetable extends Activity implements View.OnClickListener , Nav
                 startActivity(intent);
                 break;
             case R.id.nav_home:
-                Intent intent2= new Intent(getApplicationContext(),Home.class);
-                startActivity(intent2);
+                Intent intent5 =new Intent(getApplicationContext(),Home.class);
+                startActivity(intent5);
                 break;
+
             case R.id.nav_add_cours:
-                Intent intent4 =new Intent(getApplicationContext(),addCourse.class);
-                startActivity(intent4);
+                Intent intent2= new Intent(getApplicationContext(),addCourse.class);
+                startActivity(intent2);
                 break;
             case R.id.nav_profile:
                 Intent intent3= new Intent(getApplicationContext(),Profile.class);
                 startActivity(intent3);
                 break;
             case R.id.nav_timetable:
-                Intent intent5 =new Intent(getApplicationContext(),Timetable.class);
-                startActivity(intent5);
+                Intent intent4 =new Intent(getApplicationContext(),Timetable.class);
+                startActivity(intent4);
                 break;
             case R.id.nav_add_timetable:
+                break;
+            case R.id.nav_chat:
+                Intent intent6 =new Intent(getApplicationContext(),Messaging.class);
+                startActivity(intent6);
+                break;
+            case R.id.nav_chatd:
+                Intent intent7 =new Intent(getApplicationContext(),Messaging_delegate.class);
+                startActivity(intent7);
                 break;
             case R.id.nav_logout:
                 mAuth.getInstance().signOut();
                 finish();
-                startActivity( new Intent(getApplicationContext(),Login.class));
+                startActivity( new Intent(getApplicationContext(),Sign.class));
 
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 
 
     //this function will get the pdf from the storage

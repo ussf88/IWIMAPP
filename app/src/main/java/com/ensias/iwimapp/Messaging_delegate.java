@@ -59,7 +59,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-public class Messaging extends Activity implements NavigationView.OnNavigationItemSelectedListener {
+public class Messaging_delegate extends Activity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;
     NavigationView nav;
     Toolbar navIcon;
@@ -80,7 +80,7 @@ public class Messaging extends Activity implements NavigationView.OnNavigationIt
     }
 
     private static final String TAG = "MainActivity";
-    public static final  String MESSAGES_CHILD="messages";
+    public static final  String MESSAGES_CHILD="messages_delegate";
     private static final int REQUEST_INVITE = 1;
     private static final int REQUEST_IMAGE = 2;
     private static final String LOADING_IMAGE_URL = "https://www.google.com/images/spin-32.gif";
@@ -257,10 +257,10 @@ public class Messaging extends Activity implements NavigationView.OnNavigationIt
 
                 viewHolder.messengerTextView.setText(friendlyMessage.getName());
                 if (friendlyMessage.getPhotoUrl() == null) {
-                        viewHolder.messengerImageView.setImageDrawable(ContextCompat.getDrawable(Messaging.this,
-                                R.drawable.ic_account_orange));
+                    viewHolder.messengerImageView.setImageDrawable(ContextCompat.getDrawable(Messaging_delegate.this,
+                            R.drawable.ic_account_orange));
                 } else {
-                    Glide.with(Messaging.this)
+                    Glide.with(Messaging_delegate.this)
                             .load(friendlyMessage.getPhotoUrl())
                             .into(viewHolder.messengerImageView);
                 }
@@ -375,10 +375,10 @@ public class Messaging extends Activity implements NavigationView.OnNavigationIt
                 startActivity(intent2);
                 break;
             case R.id.nav_chat:
+                Intent intent7 =new Intent(getApplicationContext(),Messaging.class);
+                startActivity(intent7);
                 break;
             case R.id.nav_chatd:
-                Intent intent7 =new Intent(getApplicationContext(),Messaging_delegate.class);
-                startActivity(intent7);
                 break;
             case R.id.nav_logout:
                 mFirebaseAuth.getInstance().signOut();
@@ -389,7 +389,6 @@ public class Messaging extends Activity implements NavigationView.OnNavigationIt
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 
 

@@ -14,12 +14,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/myTheme">
-        <activity android:name=".Main2Activity"></activity>
-        <activity android:name=".Messaging"></activity>
-        <activity android:name=".addTimetable"
-            android:label="Add Time Table"/>
-        <activity android:name=".Timetable"
-            android:label="Time Table"/>
+        <activity android:name=".Messaging_delegate"></activity>
+        <activity android:name=".Main2Activity" />
+        <activity
+            android:name=".Messaging"
+            android:label="Chat" />
+        <activity
+            android:name=".addTimetable"
+            android:label="Add Time Table" />
+        <activity
+            android:name=".Timetable"
+            android:label="Time Table" />
         <activity
             android:name=".addCourse"
             android:label="Add Course" />
@@ -40,18 +45,10 @@
         </activity>
         <activity
             android:name=".Sign"
-            android:label="Sign up">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:label="Sign up" />
         <activity
             android:name=".Home"
-            android:label="Home">
-            <intent-filter>
-                <action android:name="android.intent.action.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:label="Home" />
     </application>
 
 </manifest>
